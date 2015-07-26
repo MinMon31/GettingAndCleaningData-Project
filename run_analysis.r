@@ -48,8 +48,6 @@ Data<-cbind(x,y,subject)
 
 Data.table=data.table(Data)
 
-TidyData <- Data[, lapply(.SD, mean), by = 'Activity']
-write.table(TidyData, file = "Tidy.txt", row.names = FALSE)
 
 tidyData=aggregate(Data[,names(Data) != c('Activity','Subject')],by=list(Activity=Data$Activity,Subject = Data$Subject),mean)
 
